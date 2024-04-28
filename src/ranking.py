@@ -1,4 +1,5 @@
 import os, dotenv, discord
+from chat import generate_smart_response, prompt
 from dataclasses import dataclass
 
 @dataclass
@@ -103,15 +104,17 @@ class Ranking(discord.Client):
                     
                     # Now you can do whatever you want with media_review object
                     await msg.channel.send(self.format_review(media_review))
+                    await msg.channel.send(generate_smart_response(media_type, review_txt))
                     return
             except Exception as e:
                 # Some misformed message. Send help!
                 await msg.channel.send(self.message_help())
-                print(e)
-                raise e
                 return
             await msg.channel.send(self.message_help())
 
+        elif msg.content.startswith("!prompt"):
+            content = msg.content[len("!prompt "):]
+            await msg.channel.send(prompt(content))
 
 if __name__ == "__main__":
     dotenv.load_dotenv()

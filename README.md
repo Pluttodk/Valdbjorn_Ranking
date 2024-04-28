@@ -39,4 +39,5 @@ In order to run it with your own agent:
 2) Create a `.env` file and paste the bots token in format as below:
 ```
 DISCORD_TOKEN=<INSERT TOKEN>
+OLLAMA_CLIENT=<URL FOR OLLAMA>
 ```

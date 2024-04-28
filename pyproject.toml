@@ -8,6 +8,8 @@ authors = [
 dependencies = [
     "discord-py>=2.3.2",
     "python-dotenv>=1.0.1",
+    "langchain>=0.1.16",
+    "langchain-community>=0.0.34",
 ]
 requires-python = "==3.12.*"
 readme = "README.md"
